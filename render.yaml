@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: converter-backend
+    runtime: docker
+    rootDir: backend
+    plan: free
+    dockerfilePath: ./Dockerfile
+    autoDeploy: true
+    envVars:
+      - key: GHOSTSCRIPT_CMD
+        value: gs
+      - key: CORS_ALLOW_ORIGINS
+        sync: false

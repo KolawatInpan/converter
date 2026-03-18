@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: 'Klee One Custom';
+	src: url('./font/KleeOne-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Klee One Custom';
+	src: url('./font/KleeOne-SemiBold.ttf') format('truetype');
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--app-font-family: 'Klee One Custom', 'Yu Gothic UI', 'Hiragino Sans', sans-serif;
+}
+
+body {
+	font-family: var(--app-font-family);
+}
+
+.app-font-klee-regular {
+	--app-font-family: 'Klee One Custom', 'Yu Gothic UI', 'Hiragino Sans', sans-serif;
+	font-weight: 400;
+}
+
+.app-font-klee-semibold {
+	--app-font-family: 'Klee One Custom', 'Yu Gothic UI', 'Hiragino Sans', sans-serif;
+	font-weight: 600;
+}
+
+.ruby-word {
+	display: inline-flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	line-height: 1;
+}
+
+.ruby-reading {
+	line-height: 1.1;
+	margin-bottom: 0.35rem;
+}
