@@ -1,9 +1,8 @@
 import axios from 'axios'
+import { API_BASE_URL } from './api_base'
 
 type CompressQuality = 'low' | 'medium' | 'high' | 'prepress'
 export type CompressPhase = 'uploading' | 'compressing' | 'downloading'
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://127.0.0.1:5000'
 
 async function getAxiosErrorMessage(error: unknown): Promise<string> {
     if (!axios.isAxiosError(error)) {

@@ -1,0 +1,259 @@
+{
+  "skills": [
+    {
+      "id": 1,
+      "name": "Right-Handed ◎",
+      "jpName": "右回り◎",
+      "description": "Increase performance on right-handed tracks.",
+      "skillPoints": 200,
+      "evalPoints": 174,
+      "pointRatio": 0.87,
+      "category": "track",
+      "rarity": "normal"
+    },
+    {
+      "id": 2,
+      "name": "Right-Handed ○",
+      "jpName": "右回り○",
+      "description": "Moderately increase performance on right-handed tracks.",
+      "skillPoints": 90,
+      "evalPoints": 129,
+      "pointRatio": 1.43,
+      "category": "track",
+      "rarity": "normal"
+    },
+    {
+      "id": 3,
+      "name": "Left-Handed ◎",
+      "jpName": "左回り◎",
+      "description": "Increase performance on left-handed tracks.",
+      "skillPoints": 200,
+      "evalPoints": 174,
+      "pointRatio": 0.87,
+      "category": "track",
+      "rarity": "normal"
+    },
+    {
+      "id": 4,
+      "name": "Left-Handed ○",
+      "jpName": "左回り○",
+      "description": "Moderately increase performance on left-handed tracks.",
+      "skillPoints": 90,
+      "evalPoints": 129,
+      "pointRatio": 1.43,
+      "category": "track",
+      "rarity": "normal"
+    },
+    {
+      "id": 5,
+      "name": "Chokusen Course ◎",
+      "jpName": "直線コース◎",
+      "description": "Increase performance on straight tracks.",
+      "skillPoints": 160,
+      "evalPoints": 174,
+      "pointRatio": 1.09,
+      "category": "track",
+      "rarity": "normal"
+    },
+    {
+      "id": 6,
+      "name": "Chokusen Course ○",
+      "jpName": "直線コース○",
+      "description": "Moderately increase performance on straight tracks.",
+      "skillPoints": 70,
+      "evalPoints": 129,
+      "pointRatio": 1.84,
+      "category": "track",
+      "rarity": "normal"
+    },
+    {
+      "id": 7,
+      "name": "Tokyo Racecourse ◎",
+      "jpName": "東京レース場◎",
+      "description": "Increase performance at Tokyo Racecourse.",
+      "skillPoints": 200,
+      "evalPoints": 174,
+      "pointRatio": 0.87,
+      "category": "racecourse",
+      "rarity": "normal"
+    },
+    {
+      "id": 8,
+      "name": "Tokyo Racecourse ○",
+      "jpName": "東京レース場○",
+      "description": "Moderately increase performance at Tokyo Racecourse.",
+      "skillPoints": 90,
+      "evalPoints": 129,
+      "pointRatio": 1.43,
+      "category": "racecourse",
+      "rarity": "normal"
+    },
+    {
+      "id": 9,
+      "name": "Nakayama Racecourse ◎",
+      "jpName": "中山レース場◎",
+      "description": "Increase performance at Nakayama Racecourse.",
+      "skillPoints": 200,
+      "evalPoints": 174,
+      "pointRatio": 0.87,
+      "category": "racecourse",
+      "rarity": "normal"
+    },
+    {
+      "id": 10,
+      "name": "Nakayama Racecourse ○",
+      "jpName": "中山レース場○",
+      "description": "Moderately increase performance at Nakayama Racecourse.",
+      "skillPoints": 90,
+      "evalPoints": 129,
+      "pointRatio": 1.43,
+      "category": "racecourse",
+      "rarity": "normal"
+    },
+    {
+      "id": 11,
+      "name": "Hanshin Racecourse ◎",
+      "jpName": "阪神レース場◎",
+      "description": "Increase performance at Hanshin Racecourse.",
+      "skillPoints": 200,
+      "evalPoints": 174,
+      "pointRatio": 0.87,
+      "category": "racecourse",
+      "rarity": "normal"
+    },
+    {
+      "id": 12,
+      "name": "Hanshin Racecourse ○",
+      "jpName": "阪神レース場○",
+      "description": "Moderately increase performance at Hanshin Racecourse.",
+      "skillPoints": 90,
+      "evalPoints": 129,
+      "pointRatio": 1.43,
+      "category": "racecourse",
+      "rarity": "normal"
+    },
+    {
+      "id": 13,
+      "name": "Kyoto Racecourse ◎",
+      "jpName": "京都レース場◎",
+      "description": "Increase performance at Kyoto Racecourse.",
+      "skillPoints": 200,
+      "evalPoints": 174,
+      "pointRatio": 0.87,
+      "category": "racecourse",
+      "rarity": "normal"
+    },
+    {
+      "id": 14,
+      "name": "Kyoto Racecourse ○",
+      "jpName": "京都レース場○",
+      "description": "Moderately increase performance at Kyoto Racecourse.",
+      "skillPoints": 90,
+      "evalPoints": 129,
+      "pointRatio": 1.43,
+      "category": "racecourse",
+      "rarity": "normal"
+    },
+    {
+      "id": 15,
+      "name": "Standard Distance ◎",
+      "jpName": "根幹距離◎",
+      "description": "Increase performance over standard distances (multiples of 400m).",
+      "skillPoints": 200,
+      "evalPoints": 174,
+      "pointRatio": 0.87,
+      "category": "distance",
+      "rarity": "normal"
+    },
+    {
+      "id": 16,
+      "name": "Standard Distance ○",
+      "jpName": "根幹距離○",
+      "description": "Moderately increase performance over standard distances (multiples of 400m).",
+      "skillPoints": 90,
+      "evalPoints": 129,
+      "pointRatio": 1.43,
+      "category": "distance",
+      "rarity": "normal"
+    },
+    {
+      "id": 17,
+      "name": "Firm Conditions ◎",
+      "jpName": "良バ場◎",
+      "description": "Increase performance on firm ground.",
+      "skillPoints": 200,
+      "evalPoints": 174,
+      "pointRatio": 0.87,
+      "category": "condition",
+      "rarity": "normal"
+    },
+    {
+      "id": 18,
+      "name": "Firm Conditions ○",
+      "jpName": "良バ場○",
+      "description": "Moderately increase performance on firm ground.",
+      "skillPoints": 90,
+      "evalPoints": 129,
+      "pointRatio": 1.43,
+      "category": "condition",
+      "rarity": "normal"
+    },
+    {
+      "id": 19,
+      "name": "Runaway",
+      "jpName": "大逃げ",
+      "description": "Attempt to gain an especially large lead and keep it until the finish. (Front Runner)",
+      "skillPoints": 200,
+      "evalPoints": 370,
+      "pointRatio": 1.85,
+      "category": "running_style",
+      "rarity": "rare"
+    },
+    {
+      "id": 20,
+      "name": "Corner Adept ○",
+      "jpName": "コーナー巧者○",
+      "description": "Slightly increase velocity on a corner with skilled turning.",
+      "skillPoints": 180,
+      "evalPoints": 217,
+      "pointRatio": 1.21,
+      "category": "technique",
+      "rarity": "normal"
+    }
+  ],
+  "categories": [
+    {
+      "name": "track",
+      "label": "Track Type"
+    },
+    {
+      "name": "racecourse",
+      "label": "Racecourse"
+    },
+    {
+      "name": "distance",
+      "label": "Distance"
+    },
+    {
+      "name": "condition",
+      "label": "Track Condition"
+    },
+    {
+      "name": "season",
+      "label": "Season"
+    },
+    {
+      "name": "weather",
+      "label": "Weather"
+    },
+    {
+      "name": "running_style",
+      "label": "Running Style"
+    },
+    {
+      "name": "technique",
+      "label": "Technique"
+    }
+  ],
+  "rarities": ["normal", "rare", "unique", "negative", "inherited"]
+}

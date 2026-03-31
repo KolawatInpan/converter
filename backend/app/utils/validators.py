@@ -9,6 +9,24 @@ def validate_single_pdf(file: UploadFile) -> None:
         raise HTTPException(status_code=400, detail="File must be a PDF")
 
 
+def validate_single_image(file: UploadFile) -> None:
+    if not file.filename:
+        raise HTTPException(status_code=400, detail="Invalid file")
+
+    filename = file.filename.lower()
+    if not (
+        filename.endswith(".jpg")
+        or filename.endswith(".jpeg")
+        or filename.endswith(".png")
+        or filename.endswith(".bmp")
+        or filename.endswith(".webp")
+    ):
+        raise HTTPException(
+            status_code=400,
+            detail="File must be an image in JPG, PNG, BMP, or WEBP format",
+        )
+
+
 def validate_pdf_password(password: str, *, field_name: str = "password") -> None:
     if not password or not password.strip():
         raise HTTPException(status_code=400, detail=f"{field_name} is required")

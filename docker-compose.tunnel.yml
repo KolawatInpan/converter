@@ -1,0 +1,17 @@
+services:
+  backend:
+    environment:
+      CORS_ALLOW_ORIGINS: ${CORS_ALLOW_ORIGINS}
+
+  frontend:
+    environment:
+      VITE_API_BASE_URL: ${PUBLIC_API_BASE_URL}
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: converter-cloudflared
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TUNNEL_TOKEN}
+    depends_on:
+      - frontend
+      - backend
+    restart: unless-stopped

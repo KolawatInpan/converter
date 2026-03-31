@@ -1,8 +1,7 @@
 import axios from 'axios'
+import { API_BASE_URL } from './api_base'
 
 export type ConvertMode = 'from-pdf' | 'to-pdf'
-
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://127.0.0.1:5000'
 
 type ConvertResponse = {
 	blob: Blob

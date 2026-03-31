@@ -1,0 +1,47 @@
+[
+  {
+    "name": "非根幹距離",
+    "type": "Normal",
+    "aliases": ["非橋幹距離", "非根幹距離○", "非橋幹距離○"]
+  },
+  {
+    "name": "右回り",
+    "type": "Normal",
+    "aliases": ["右回り○", "右回り〇"]
+  },
+  {
+    "name": "左回り",
+    "type": "Normal",
+    "aliases": ["左回り○", "左回り〇"]
+  },
+  {
+    "name": "秋ウマ娘",
+    "type": "Normal",
+    "aliases": ["秋ウマ娘○", "秋ウマ娘〇"]
+  },
+  {
+    "name": "シンパシー",
+    "type": "Normal",
+    "aliases": []
+  },
+  {
+    "name": "黄金を訪ねて",
+    "type": "Unknown",
+    "aliases": []
+  },
+  {
+    "name": "勝ち鬨ワッショイ！",
+    "type": "Unknown",
+    "aliases": ["勝ち開ワッショイ！", "騰ち開ワッショイ！", "勝ち鬨ワッショイ!", "ワッショイ！"]
+  },
+  {
+    "name": "オペレーション・Cacao",
+    "type": "Unknown",
+    "aliases": ["オペレーション・C", "オペレーションCacao"]
+  },
+  {
+    "name": "コーナー巧者",
+    "type": "Normal",
+    "aliases": ["コーナー巧書", "コーナー巧者○", "コーナー巧者〇"]
+  }
+]

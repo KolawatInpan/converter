@@ -82,7 +82,7 @@ export default function VocabExtract() {
 				<div className="mb-8">
 					<h1 className="text-3xl font-bold text-slate-100">Vocab Extract</h1>
 					<p className="mt-2 text-sm text-slate-300">
-						Type a Japanese paragraph and the page will call the extractor API to build the vocabulary list.
+						Type a Japanese paragraph and the page will call the extractor API to build the vocabulary list, or search for UMA skills.
 					</p>
 				</div>
 
@@ -160,6 +160,7 @@ export default function VocabExtract() {
 						) : null}
 					</section>
 				</div>
+
 			</div>
 		</div>
 	)

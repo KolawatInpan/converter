@@ -14,16 +14,22 @@ app = FastAPI(title="PDF Converter API")
 
 
 def get_allowed_origins() -> list[str]:
-    configured = os.getenv("CORS_ALLOW_ORIGINS", "").strip()
-    if configured:
-        return [origin.strip() for origin in configured.split(",") if origin.strip()]
-
-    return [
+    default_origins = [
         "http://localhost:5001",
         "http://127.0.0.1:5001",
         "http://localhost:3000",
         "http://127.0.0.1:3000",
     ]
+    configured = os.getenv("CORS_ALLOW_ORIGINS", "").strip()
+    if configured:
+        merged: list[str] = []
+        for origin in [*configured.split(","), *default_origins]:
+            normalized = origin.strip()
+            if normalized and normalized not in merged:
+                merged.append(normalized)
+        return merged
+
+    return default_origins
 
 app.add_middleware(
     CORSMiddleware,

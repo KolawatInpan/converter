@@ -9,7 +9,9 @@ import DictionaryPage from './pages/dictionary'
 import ExtractPdfImagesPage from './pages/Extract-pdf-images'
 import ExtractPdfPagesPage from './pages/Extract-pdf-pages'
 import Home from './pages/Home'
+import ImageOcrPage from './pages/Image-ocr'
 import ImagesToPdfPage from './pages/Images-to-pdf'
+import KanjiReadingPage from './pages/Kanji-reading'
 import KanaChartPage from './pages/Kana-chart'
 import MergePdf from './pages/Merge-pdf'
 import NewsReading from './pages/News-reading'
@@ -26,6 +28,12 @@ import SplitPdfPage from './pages/Split-pdf'
 import TemplateCreate from './pages/Template-create'
 import UnlockPdfPage from './pages/Unlock-pdf'
 import VocabExtract from './pages/Vocab-extract'
+import UmaCharactersPage from './pages/Uma-characters'
+import UmaCharacterDetailPage from './pages/Uma-character-detail'
+import UmaSkillPage from './pages/Uma-skill'
+import UmaSkillDetailPage from './pages/Uma-skill-detail'
+import UmaSupportDetailPage from './pages/Uma-support-detail'
+import UmaSupportsPage from './pages/Uma-supports'
 
 export type AppFont = 'klee-regular' | 'klee-semibold'
 
@@ -60,6 +68,8 @@ export default function App() {
         <Route path="/extract-pdf-pages" element={<ExtractPdfPagesPage />} />
         <Route path="/rearrange-pdf-pages" element={<RearrangePdfPagesPage />} />
         <Route path="/dictionary" element={<DictionaryPage />} />
+        <Route path="/image-ocr" element={<ImageOcrPage />} />
+        <Route path="/kanji-reading" element={<KanjiReadingPage />} />
         <Route path="/kana-chart" element={<KanaChartPage />} />
         <Route path="/radical-chart" element={<RadicalChartPage />} />
         <Route path="/sentence-breakdown" element={<SentenceBreakdownPage />} />
@@ -69,6 +79,12 @@ export default function App() {
         <Route path="/put-vocabulary-grid" element={<PutVocabularyInGrid />} />
         <Route path="/news-reading" element={<NewsReading />} />
         <Route path="/exam-multiple-choices" element={<ExamMultipleChoices />} />
+        <Route path="/uma-skills" element={<UmaSkillPage />} />
+        <Route path="/uma-supports" element={<UmaSupportsPage />} />
+        <Route path="/uma-characters" element={<UmaCharactersPage />} />
+        <Route path="/uma-skills/:id" element={<UmaSkillDetailPage />} />
+        <Route path="/uma-supports/:id" element={<UmaSupportDetailPage />} />
+        <Route path="/uma-characters/:id" element={<UmaCharacterDetailPage />} />
       </Routes>
     </div>
   )

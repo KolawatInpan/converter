@@ -5,5 +5,7 @@ python-dotenv
 pypdf
 pymupdf
 pillow
+pytesseract
 aiofiles
 janome
+requests

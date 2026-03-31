@@ -12,6 +12,8 @@ export const toolRoutes: Record<string, string> = {
 	'Extract PDF pages': '/extract-pdf-pages',
 	'Rearrange PDF pages': '/rearrange-pdf-pages',
 	Dictionary: '/dictionary',
+	'Image OCR': '/image-ocr',
+	'Kanji Reading': '/kanji-reading',
 	'Kana Chart': '/kana-chart',
 	'Radical Chart': '/radical-chart',
 	'Sentence Breakdown': '/sentence-breakdown',
@@ -21,6 +23,9 @@ export const toolRoutes: Record<string, string> = {
 	'Put Vocabulary in Grid': '/put-vocabulary-grid',
 	'News Reading': '/news-reading',
 	'Exam Multiple Choices': '/exam-multiple-choices',
+	'UMA Skills': '/uma-skills',
+	'UMA Supports': '/uma-supports',
+	'UMA Characters': '/uma-characters',
 }
 
 export const tools = [
@@ -28,6 +33,8 @@ export const tools = [
 	'Split PDF',
 	'Compress PDF',
 	'Dictionary',
+	'Image OCR',
+	'Kanji Reading',
 	'Kana Chart',
 	'Radical Chart',
 	'Sentence Breakdown',
@@ -46,6 +53,9 @@ export const tools = [
 	'Put Vocabulary in Grid',
 	'News Reading',
 	'Exam Multiple Choices',
+	'UMA Skills',
+	'UMA Supports',
+	'UMA Characters',
 ]
 
 export const toolCategories = {
@@ -67,6 +77,8 @@ export const toolCategories = {
 	Image: ['Images to PDF', 'PDF to Images', 'Extract PDF images', 'Template Create'],
 	Japanese: [
 		'Dictionary',
+		'Image OCR',
+		'Kanji Reading',
 		'Kana Chart',
 		'Radical Chart',
 		'Sentence Breakdown',
@@ -75,5 +87,8 @@ export const toolCategories = {
 		'Put Vocabulary in Grid',
 		'News Reading',
 		'Exam Multiple Choices',
+		'UMA Skills',
+		'UMA Supports',
+		'UMA Characters',
 	],
 } satisfies Record<string, string[]>

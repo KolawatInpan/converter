@@ -57,7 +57,7 @@ docker compose up --build
 For internet access through Cloudflare Tunnel:
 
 ```bash
-docker compose --profile tunnel up --build -d
+docker compose -f docker-compose.yml -f docker-compose.tunnel.yml up --build -d
 ```
 
 ### 4. Verify it works

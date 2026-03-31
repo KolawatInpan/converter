@@ -4,15 +4,21 @@ import type { AppFont } from '../App'
 import { Link } from 'react-router-dom'
 import { toolRoutes, tools } from '../data/tools'
 import { lookupDictionaryApi, type DictionaryEntry } from '../api_caller/dictionary'
+import {
+	getUmaEntityRoute,
+	searchUmaDatabase,
+	type UmaDbItem,
+} from '../api_caller/uma_database'
 
 type NavbarProps = {
 	appFont: AppFont
 	onFontChange: (font: AppFont) => void
 }
 
-type SearchMode = 'words' | 'tools'
+type SearchMode = 'words' | 'tools' | 'uma'
 
 const WORD_SEARCH_DELAY_MS = 250
+const SKILL_SEARCH_DELAY_MS = 250
 
 function Navbar({ appFont, onFontChange }: NavbarProps) {
 	const [searchTerm, setSearchTerm] = useState('')
@@ -21,6 +27,9 @@ function Navbar({ appFont, onFontChange }: NavbarProps) {
 	const [wordResults, setWordResults] = useState<DictionaryEntry[]>([])
 	const [isWordLoading, setIsWordLoading] = useState(false)
 	const [wordErrorMessage, setWordErrorMessage] = useState<string | null>(null)
+	const [umaResults, setUmaResults] = useState<UmaDbItem[]>([])
+	const [isUmaLoading, setIsUmaLoading] = useState(false)
+	const [umaErrorMessage, setUmaErrorMessage] = useState<string | null>(null)
 	const [isComposing, setIsComposing] = useState(false)
 	const searchContainerRef = useRef<HTMLDivElement | null>(null)
 
@@ -48,6 +57,57 @@ function Navbar({ appFont, onFontChange }: NavbarProps) {
 			document.removeEventListener('mousedown', handlePointerDown)
 		}
 	}, [])
+
+	useEffect(() => {
+		if (searchMode !== 'uma') {
+			setUmaResults([])
+			setIsUmaLoading(false)
+			setUmaErrorMessage(null)
+			return
+		}
+
+		if (isComposing) {
+			return
+		}
+
+		const trimmedSearch = searchTerm.trim()
+		if (!trimmedSearch) {
+			setUmaResults([])
+			setIsUmaLoading(false)
+			setUmaErrorMessage(null)
+			return
+		}
+
+		let isCancelled = false
+		const timeoutId = window.setTimeout(async () => {
+			setIsUmaLoading(true)
+			setUmaErrorMessage(null)
+			try {
+				const response = await searchUmaDatabase(trimmedSearch, 'all')
+				if (isCancelled) {
+					return
+				}
+				setUmaResults((response.results ?? []).slice(0, 8))
+			} catch (error) {
+				if (isCancelled) {
+					return
+				}
+				setUmaResults([])
+				setUmaErrorMessage(
+					error instanceof Error ? error.message : 'Unable to search UMA data right now.',
+				)
+			} finally {
+				if (!isCancelled) {
+					setIsUmaLoading(false)
+				}
+			}
+		}, SKILL_SEARCH_DELAY_MS)
+
+		return () => {
+			isCancelled = true
+			window.clearTimeout(timeoutId)
+		}
+	}, [isComposing, searchMode, searchTerm])
 
 	useEffect(() => {
 		if (searchMode !== 'words') {
@@ -137,7 +197,7 @@ function Navbar({ appFont, onFontChange }: NavbarProps) {
 							autoCapitalize="none"
 							spellCheck={false}
 							enterKeyHint="search"
-							placeholder={searchMode === 'tools' ? 'Search tools' : 'Search words'}
+							placeholder={searchMode === 'tools' ? 'Search tools' : searchMode === 'words' ? 'Search words' : 'Search UMA DB'}
 							className="w-full bg-transparent text-sm text-slate-100 outline-none placeholder:text-slate-500"
 						/>
 					</div>
@@ -154,6 +214,17 @@ function Navbar({ appFont, onFontChange }: NavbarProps) {
 									}`}
 								>
 									Words
+								</button>
+								<button
+									type="button"
+									onClick={() => setSearchMode('uma')}
+									className={`flex-1 rounded-lg px-3 py-1.5 text-sm transition ${
+										searchMode === 'uma'
+											? 'bg-sky-500 text-slate-950'
+											: 'text-slate-300 hover:bg-slate-800'
+									}`}
+								>
+									UMA DB
 								</button>
 								<button
 									type="button"
@@ -205,6 +276,56 @@ function Navbar({ appFont, onFontChange }: NavbarProps) {
 										No matching tools found.
 									</div>
 								)
+							) : searchMode === 'uma' ? (
+								<>
+									{isUmaLoading ? (
+										<div className="rounded-xl px-3 py-2 text-sm text-slate-400">
+											Searching UMA database...
+										</div>
+									) : null}
+									{!isUmaLoading && umaErrorMessage ? (
+										<div className="rounded-xl px-3 py-2 text-sm text-rose-300">
+											{umaErrorMessage}
+										</div>
+									) : null}
+									{!isUmaLoading && !umaErrorMessage && umaResults.length > 0 ? (
+										umaResults.map((item) => (
+											<Link
+												key={`${item.entity}-${String(item.id)}`}
+												to={
+													item.entity
+														? getUmaEntityRoute(item.entity, String(item.id))
+														: '/uma-skills'
+												}
+												onClick={() => {
+													setSearchTerm('')
+													setIsSearchOpen(false)
+												}}
+												className="block rounded-xl px-3 py-2 text-sm text-slate-200 transition hover:bg-slate-800 hover:text-sky-300"
+											>
+												<div className="flex items-center justify-between gap-3">
+													<span className="font-medium text-slate-100">{item.name}</span>
+													<span className="text-xs text-emerald-300">
+														{item.entity === 'skills' ? 'Skill' : item.entity === 'supports' ? 'Support' : 'Character'}
+													</span>
+												</div>
+												<div className="mt-1 line-clamp-1 text-xs text-slate-400">
+													{item.jpName || item.subtitle || '-'}
+												</div>
+											</Link>
+										))
+									) : null}
+									{!isUmaLoading && !umaErrorMessage && searchTerm.trim() && umaResults.length === 0 ? (
+										<div className="rounded-xl px-3 py-2 text-sm text-slate-500">
+											No matching UMA data found.
+										</div>
+									) : null}
+									{!searchTerm.trim() ? (
+										<div className="rounded-xl px-3 py-2 text-sm text-slate-500">
+											Type an English or Japanese name for a skill, support, or character.
+										</div>
+									) : null}
+								</>
 							) : (
 								<>
 									{isWordLoading ? (

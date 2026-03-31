@@ -56,6 +56,7 @@ export default function ToolIcon({ tool, className = 'h-7 w-7 text-slate-300' }:
 
 	if (
 		tool === 'Dictionary' ||
+		tool === 'Kanji Reading' ||
 		tool === 'Radical Chart' ||
 		tool === 'Sentence Breakdown'
 	) {
@@ -67,6 +68,10 @@ export default function ToolIcon({ tool, className = 'h-7 w-7 text-slate-300' }:
 	}
 
 	if (tool === 'Vocab Extract') {
+		return <ScanText className={className} />
+	}
+
+	if (tool === 'Image OCR' || tool === 'UMA Skills' || tool === 'UMA Supports' || tool === 'UMA Characters') {
 		return <ScanText className={className} />
 	}
 
